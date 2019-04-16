@@ -1,5 +1,9 @@
-Xinyang Fan has been assigned with interaction diagram.
+Xinyang Fan has been assigned with interaction diagrams.
 Xiang Gao has been assigned with class diagrams.
 The design rational is writen whenever it is needed by the diagram creator.
+
+Class diagrams must be completed before Apr/17/2019
+interaction diagrams must be be completed by Apr/18/2019
+Design rational must be compleated before Apr/18/2019
 								
 								Apr/16/2019
