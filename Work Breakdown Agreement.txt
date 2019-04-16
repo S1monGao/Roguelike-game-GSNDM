@@ -1,0 +1,5 @@
+Xinyang Fan has been assigned with interaction diagram.
+Xiang Gao has been assigned with class diagrams.
+The design rational will be evenly distributed between these two individuals.
+								
+								Apr/16/2019
