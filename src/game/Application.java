@@ -40,15 +40,17 @@ public class Application {
 		Grunt grunt = new Grunt("Mongo", player);
 		gameMap.addActor(grunt, 0, 0);
 		Grunt grunt2 = new Grunt("Norbert", player);
-		gameMap.addActor(grunt2,  10, 10);
+		////gameMap.addActor(grunt2,  10, 10);
 		Q Q = new Q("Q",player);
-		gameMap.addActor(Q,  0, 10);
+		gameMap.addActor(Q, 0, 1);
 		//Grunt grunt2 = new Grunt("Norbert", player);
 		//gameMap.addActor(grunt2,  10, 10);
 		Goons goons1 = new Goons("Simon", player);
-		gameMap.addActor(goons1,  13, 10);
+		////gameMap.addActor(goons1,  13, 10);
 		//Goons goons2 = new Goons("Red", player);
 		//gameMap.addActor(goons2,  10, 8);
+		DoctorMaybe doc = new DoctorMaybe("Doc");
+		gameMap.addActor(doc, 5, 2);
 			
 		world.run();
 	}

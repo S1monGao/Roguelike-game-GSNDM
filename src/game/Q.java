@@ -15,15 +15,18 @@ public class Q extends Actor{
 	
 	private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();
 	
+	private void addBehaviour(ActionFactory behaviour) {
+		actionFactories.add(behaviour);
+	}
+	
 	@Override
 	public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
-		return new Actions();
+		return new Actions(new Talks(otherActor,this));
 	}
 	
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
-		for (ActionFactory factory : actionFactories) {
-			Action action = factory.getAction(this, map);
+		for (Action action : actions) {
 			if(action != null && !(action instanceof AttackAction))
 				return action;
 		}
