@@ -40,6 +40,8 @@ public class Application {
 		gameMap.addActor(grunt, 0, 0);
 		Grunt grunt2 = new Grunt("Norbert", player);
 		gameMap.addActor(grunt2,  10, 10);
+		Q Q = new Q();
+		gameMap.addActor(Q,  0, 10);
 			
 		world.run();
 	}
