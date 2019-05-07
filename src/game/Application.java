@@ -1,6 +1,7 @@
 package game;
 
 import java.util.Arrays;
+
 import java.util.List;
 
 import edu.monash.fit2099.engine.Actor;
@@ -15,15 +16,15 @@ public class Application {
 	public static void main(String[] args) {
 		World world = new World(new Display());
 
-		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall());
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(),new Door());
 		GameMap gameMap;
 
 		List<String> map = Arrays.asList(
 				".......................",
 				"....#####....######....",
 				"....#...#....#....#....",
-				"....#........#....#....",
-				"....#####....##.###....",
+				"....#...+....#....#....",
+				"....#####....##+###....",
 				".......................",
 				".......................",
 				".......................",
@@ -42,6 +43,12 @@ public class Application {
 		gameMap.addActor(grunt2,  10, 10);
 		Q Q = new Q();
 		gameMap.addActor(Q,  0, 10);
+		//Grunt grunt2 = new Grunt("Norbert", player);
+		//gameMap.addActor(grunt2,  10, 10);
+		Goons goons1 = new Goons("Simon", player);
+		gameMap.addActor(goons1,  13, 10);
+		//Goons goons2 = new Goons("Red", player);
+		//gameMap.addActor(goons2,  10, 8);
 			
 		world.run();
 	}
