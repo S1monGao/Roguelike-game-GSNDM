@@ -21,7 +21,9 @@ public class Q extends Actor{
 	
 	@Override
 	public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
-		return new Actions(new Talks(otherActor,this));
+		Actions npcActions = new Actions(new Talks(otherActor,this));
+		npcActions.add(new ExchangePlan(otherActor, this));
+		return npcActions;
 	}
 	
 	@Override

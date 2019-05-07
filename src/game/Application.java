@@ -42,7 +42,7 @@ public class Application {
 		Grunt grunt2 = new Grunt("Norbert", player);
 		////gameMap.addActor(grunt2,  10, 10);
 		Q Q = new Q("Q",player);
-		gameMap.addActor(Q, 0, 1);
+		gameMap.addActor(Q, 2, 1);
 		//Grunt grunt2 = new Grunt("Norbert", player);
 		//gameMap.addActor(grunt2,  10, 10);
 		Goons goons1 = new Goons("Simon", player);

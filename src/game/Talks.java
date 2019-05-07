@@ -20,10 +20,10 @@ public class Talks extends Action{
 	public String execute(Actor actor, GameMap map) {
 		RocketPlan RocketPlan = new RocketPlan();
 		if (actor.getInventory().contains(RocketPlan)) {
-			return "傻逼范司机快点把东西给我";
+			return "\n傻逼范司机快点把东西给我\n";
 		}
 		else {
-			return "傻逼范司机快点去找东西给我";
+			return "\n傻逼范司机快点去找东西给我\n";
 		}
 	}
 
