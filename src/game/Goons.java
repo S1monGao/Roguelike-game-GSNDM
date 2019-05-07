@@ -20,6 +20,8 @@ public class Goons extends Actor{
 	
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
+		if(Math.random()<=0.1)
+			display.println(name + " says gsndm Éµ±Æ·¶Ë¾»ú");
 		for (ActionFactory factory : actionFactories) {
 			Action action = factory.getAction(this, map);
 			if(action != null)
@@ -32,8 +34,9 @@ public class Goons extends Actor{
 	@Override
 	protected IntrinsicWeapon getIntrinsicWeapon() {
 		return new IntrinsicWeapon(10, "punches");
-		}
 	}
 
-
 }
+
+
+
