@@ -4,6 +4,8 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.Item;
+import edu.monash.fit2099.engine.Player;
 
 public class Talks extends Action{
 
@@ -18,13 +20,17 @@ public class Talks extends Action{
 
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		RocketPlan RocketPlan = new RocketPlan();
-		if (actor.getInventory().contains(RocketPlan)) {
-			return "\n傻逼范司机快点把东西给我\n";
+		if (!(actor instanceof Player))
+			return null;
+		for(Item item: actor.getInventory()) {
+			if (item instanceof RocketPlan) {
+				return npc + ": Hand them over, I don’t have all day!\n";
+			}
+				
 		}
-		else {
-			return "\n傻逼范司机快点去找东西给我\n";
-		}
+		
+		return npc + ": I can give you something that will help, but I’m going to need the plans.\n";
+		//return null;	
 	}
 
 	@Override

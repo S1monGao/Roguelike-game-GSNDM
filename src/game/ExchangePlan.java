@@ -3,6 +3,9 @@ package game;
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.Item;
+import edu.monash.fit2099.engine.Location;
+import edu.monash.fit2099.engine.Player;
 
 public class ExchangePlan extends Action{
 
@@ -15,15 +18,21 @@ public class ExchangePlan extends Action{
 
 		@Override
 		public String execute(Actor actor, GameMap map) {
-			RocketPlan RocketPlan = new RocketPlan();
-			if (actor.getInventory().contains(RocketPlan)) {
-				actor.removeItemFromInventory(RocketPlan);
-				actor.addItemToInventory(new RocketEngine());
-				return "\nPlan Exchanged !\n";
+			if (!(actor instanceof Player))
+				return null;
+			
+			for(Item item: actor.getInventory()) {
+				if (item instanceof RocketPlan) {
+				actor.removeItemFromInventory(item);
+				RocketEngine rocketengine = new RocketEngine();
+				map.locationOf(npc).addItem(rocketengine);
+				map.removeActor(npc);
+				return "Plan Exchanged! And Q disappeared.\n";
+				}
 			}
-			else {
-				return "\nYou dont have the plan!\n";
-			}
+				
+			return "You dont have the plan!\n";
+			
 		}
 
 		@Override

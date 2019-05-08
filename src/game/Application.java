@@ -38,7 +38,7 @@ public class Application {
 		world.addPlayer(player, gameMap, 2, 2);
 		
 		Grunt grunt = new Grunt("Mongo", player);
-		gameMap.addActor(grunt, 0, 0);
+		//gameMap.addActor(grunt, 0, 0);
 		Grunt grunt2 = new Grunt("Norbert", player);
 		////gameMap.addActor(grunt2,  10, 10);
 		Q Q = new Q("Q",player);
@@ -46,12 +46,17 @@ public class Application {
 		//Grunt grunt2 = new Grunt("Norbert", player);
 		//gameMap.addActor(grunt2,  10, 10);
 		Goons goons1 = new Goons("Simon", player);
-		////gameMap.addActor(goons1,  13, 10);
+		gameMap.addActor(goons1,  1, 1);
 		//Goons goons2 = new Goons("Red", player);
 		//gameMap.addActor(goons2,  10, 8);
-		DoctorMaybe doc = new DoctorMaybe("Doc");
+		DoctorMaybe doc = new DoctorMaybe("DoctorMaybe");
 		gameMap.addActor(doc, 5, 2);
-			
+		RocketPlan rocketplan = new RocketPlan();
+		gameMap.addItem(rocketplan,1,1);//16,3
+		
+		Ninja ninja = new Ninja("ninja",player);
+		gameMap.addActor(ninja, 9, 9);
+		
 		world.run();
 	}
 }

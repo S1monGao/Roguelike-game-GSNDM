@@ -13,11 +13,6 @@ public class Q extends Actor{
 		
 	}
 	
-	private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();
-	
-	private void addBehaviour(ActionFactory behaviour) {
-		actionFactories.add(behaviour);
-	}
 	
 	@Override
 	public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
@@ -29,7 +24,7 @@ public class Q extends Actor{
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		for (Action action : actions) {
-			if(action != null && !(action instanceof AttackAction))
+			if(action != null && (action instanceof SkipTurnAction)) //|| action instanceof MoveActorAction))
 				return action;
 		}
 		
