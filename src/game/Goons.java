@@ -26,6 +26,8 @@ public class Goons extends Actor{
 			display.println(name + " says: I'm gonna catch you.");
 		for (ActionFactory factory : actionFactories) {
 			Action action = factory.getAction(this, map);
+			if (action instanceof DropItemAction)
+				actionFactories.remove(action);
 			if(action != null)
 				return action;
 		}

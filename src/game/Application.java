@@ -57,10 +57,7 @@ public class Application {
 		
 		Ninja ninja = new Ninja("Ninja",player);
 		gameMap.addActor(ninja, 9, 9);
-		player.addItemToInventory(rocketplan);
-		player.addItemToInventory(new RocketEngine());
-		player.addItemToInventory(new RocketBody());
-		
+
 		world.run();
 	}
 }
