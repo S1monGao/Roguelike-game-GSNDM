@@ -28,7 +28,16 @@ public class Grunt extends Actor {
 			Action action = factory.getAction(this, map);
 			if(action != null)
 				return action;
+			else {
+				for(Action action1:actions) {
+					if(action1 instanceof DropItemAction) {
+						actions.remove(action1);
+					}
+				}
+				
+			}
 		}
+		
 		
 		return super.playTurn(actions,  map,  display);
 	}

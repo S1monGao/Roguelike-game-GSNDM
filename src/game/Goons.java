@@ -6,13 +6,13 @@ import java.util.List;
 
 public class Goons extends Actor{
 	/*The Goons are similar to Grunt, by doing the same follow-behiour but can do twice damage as Grunt, which is 10
-	 * And 10% chance on each turn of shouting an insult at the player.
+	 * And 10% chance to 
 	 * 
 	 */
 	
 	
 	public Goons(String name, Actor player) {
-		super(name, 'G', 5, 5);
+		super(name, 'G', 5, 50);
 		addBehaviour(new FollowBehaviour(player));
 			this.addItemToInventory(Key.newInventoryItem("key", 'K'));
 	}
@@ -29,8 +29,18 @@ public class Goons extends Actor{
 			display.println(name + " says: I'm gonna catch you.");
 		for (ActionFactory factory : actionFactories) {
 			Action action = factory.getAction(this, map);
-			if(action != null)
+			if(action != null) {
 				return action;
+			}
+			else {
+				for(Action action1:actions) {
+					if(action1 instanceof DropItemAction) {
+						actions.remove(action1);
+					}
+				}
+				
+			}
+				
 		}
 		
 		return super.playTurn(actions,  map,  display);
