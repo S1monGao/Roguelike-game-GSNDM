@@ -19,6 +19,12 @@ public class NinjaBehaviour implements ActionFactory{
 
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
+		
+		if(Math.random()<=0.5 && (this.distance(map.locationOf(this),map.locationOf(player))<=6)) {
+			display.println(player + " got stunned by " + this);
+			((PlayerUpdated) player).addRound(2);
+
+		}
 		// TODO Auto-generated method stub
 		Location here = map.locationOf(actor);
 		Location there = map.locationOf(target);
