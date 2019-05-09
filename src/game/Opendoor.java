@@ -19,7 +19,7 @@ public class Opendoor extends Action {
 	public String execute(Actor actor, GameMap map) {
 		
 		for(Item item: actor.getInventory()) {
-			if(item instanceof Key) {
+			if(item.toString() == "key") {
 				map.add(new Floor(), doorLocation);
 				return "The door is opened";
 			}

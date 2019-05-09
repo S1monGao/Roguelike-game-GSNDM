@@ -8,6 +8,7 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.FancyGroundFactory;
 import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Player;
 import edu.monash.fit2099.engine.World;
 
@@ -16,7 +17,7 @@ public class Application {
 	public static void main(String[] args) {
 		World world = new World(new Display());
 
-		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(),new Door());
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(),new Door(),new RocketPad());
 		GameMap gameMap;
 
 		List<String> map = Arrays.asList(
@@ -30,7 +31,7 @@ public class Application {
 				".......................",
 				".......................",
 				".......................",
-				".......................");
+				"......................O");
 		gameMap = new GameMap(groundFactory, map);
 		world.addMap(gameMap);
 		
@@ -56,6 +57,9 @@ public class Application {
 		
 		Ninja ninja = new Ninja("Ninja",player);
 		gameMap.addActor(ninja, 9, 9);
+		player.addItemToInventory(rocketplan);
+		player.addItemToInventory(new RocketEngine());
+		player.addItemToInventory(new RocketBody());
 		
 		world.run();
 	}
