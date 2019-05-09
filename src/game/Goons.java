@@ -10,7 +10,8 @@ public class Goons extends Actor{
 	public Goons(String name, Actor player) {
 		super(name, 'G', 5, 5);
 		addBehaviour(new FollowBehaviour(player));
-		this.addItemToInventory(Key.newInventoryItem("key", 'K'));
+
+			this.addItemToInventory(Key.newInventoryItem("key", 'K'));
 	}
 	
 	private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();

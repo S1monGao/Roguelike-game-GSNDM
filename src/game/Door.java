@@ -1,11 +1,11 @@
 package game;
 
 
-import edu.monash.fit2099.demo.WindowSmashAction;
 import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
+import game.Opendoor;
 
 
 public class Door extends Ground {
@@ -21,7 +21,7 @@ public class Door extends Ground {
 	
 	@Override
 	public Actions allowableActions(Actor actor, Location location, String direction){
-		return new Actions(new WindowSmashAction(direction, location));
+		return new Actions(new Opendoor(direction, location));
 	}
 	
 	@Override
