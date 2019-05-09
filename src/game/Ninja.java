@@ -30,6 +30,10 @@ public class Ninja extends Actor{
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		
+		if(Math.random()<=0.01) {
+			display.println(player + " got stunned by " + this);
+			player.playTurn(new Actions(new SkipTurnAction()), map, display);
+		}
 		for (ActionFactory factory : actionFactories) {
 			Action action = factory.getAction(this, map);
 			if(action != null)
