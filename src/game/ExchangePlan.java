@@ -24,8 +24,8 @@ public class ExchangePlan extends Action{
 			for(Item item: actor.getInventory()) {
 				if (item instanceof RocketPlan) {
 				actor.removeItemFromInventory(item);
-				RocketEngine rocketengine = new RocketEngine();
-				map.locationOf(npc).addItem(rocketengine);
+				RocketBody rocketbody = new RocketBody();
+				map.locationOf(npc).addItem(rocketbody);
 				map.removeActor(npc);
 				return "Plan Exchanged! And Q disappeared.\n";
 				}

@@ -7,13 +7,15 @@ import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
 public class RocketPad extends Ground{
 	
+	private boolean False;
+
 	public RocketPad() {
 		super('O');
 	}
 	
 	@Override
 	public boolean canActorEnter(Actor actor) {
-		return false;
+		return true;
 	}
 	
 	
@@ -24,7 +26,7 @@ public class RocketPad extends Ground{
 	
 	@Override
 	public boolean blocksThrownObjects() {
-		return true;
+		return False;
 	}
 
 	

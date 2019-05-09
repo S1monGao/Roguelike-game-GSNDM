@@ -5,12 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Goons extends Actor{
+	/*The Goons are similar to Grunt, by doing the same follow-behiour but can do twice damage as Grunt, which is 10
+	 * And 10% chance on each turn of shouting an insult at the player.
+	 * 
+	 */
 	
 	
 	public Goons(String name, Actor player) {
 		super(name, 'G', 5, 5);
 		addBehaviour(new FollowBehaviour(player));
-
 			this.addItemToInventory(Key.newInventoryItem("key", 'K'));
 	}
 	
