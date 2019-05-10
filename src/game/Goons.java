@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Goons extends Actor{
 	/*The Goons are similar to Grunt, by doing the same follow-behiour but can do twice damage as Grunt, which is 10
-	 * And 10% chance to 
+	 * And 10% chance to insult player
 	 * 
 	 */
 	
@@ -29,11 +29,8 @@ public class Goons extends Actor{
 			display.println(name + " says: I'm gonna catch you.");
 		for (ActionFactory factory : actionFactories) {
 			Action action = factory.getAction(this, map);
-			if (action instanceof DropItemAction)
-				actionFactories.remove(action);
 			if(action != null)
 				return action;
-			}
 			else {
 				for(Action action1:actions) {
 					if(action1 instanceof DropItemAction) {

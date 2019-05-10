@@ -37,23 +37,21 @@ public class Application {
 		
 		Actor player = new PlayerUpdated("Player", '@', 1, 100);
 		world.addPlayer(player, gameMap, 2, 2);
-		
+		//setup the actors
 		Grunt grunt = new Grunt("Mongo", player);
-		//gameMap.addActor(grunt, 0, 0);
+		gameMap.addActor(grunt, 0, 0);
 		Grunt grunt2 = new Grunt("Norbert", player);
-		////gameMap.addActor(grunt2,  10, 10);
+		gameMap.addActor(grunt2,  10, 10);
 		Q Q = new Q("Q",player);
-		gameMap.addActor(Q, 2, 1);
-		//Grunt grunt2 = new Grunt("Norbert", player);
-		//gameMap.addActor(grunt2,  10, 10);
+		gameMap.addActor(Q, 10, 10);
 		Goons goons1 = new Goons("Simon", player);
 		gameMap.addActor(goons1,  1, 1);
-		//Goons goons2 = new Goons("Red", player);
-		//gameMap.addActor(goons2,  10, 8);
+		Goons goons2 = new Goons("Red", player);
+		gameMap.addActor(goons2,  10, 8);
 		DoctorMaybe doc = new DoctorMaybe("DoctorMaybe");
 		gameMap.addActor(doc, 5, 2);
 		RocketPlan rocketplan = new RocketPlan();
-		gameMap.addItem(rocketplan,1,1);//16,3
+		gameMap.addItem(rocketplan,16,3);
 		
 		Ninja ninja = new Ninja("Ninja",player);
 		gameMap.addActor(ninja, 9, 9);
