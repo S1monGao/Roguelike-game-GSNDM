@@ -26,6 +26,14 @@ public class Q extends Actor{
 		for (Action action : actions) {
 			if(action != null && (action instanceof MoveActorAction))
 				return action;
+			else {
+				for(Action action1:actions) {
+					if(action1 instanceof AttackAction || action1 instanceof PickUpItemAction) {
+						actions.remove(action1);
+					}
+				}
+				
+			}
 		}
 		
 		return super.playTurn(actions,  map,  display);
