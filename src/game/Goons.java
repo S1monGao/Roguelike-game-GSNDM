@@ -22,7 +22,9 @@ public class Goons extends Actor{
 	private void addBehaviour(ActionFactory behaviour) {
 		actionFactories.add(behaviour);
 	}
-	
+  /*Goons have the same follow-behaviour as grunt and it can 
+   * 
+   */
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		if(Math.random()<=0.1)
@@ -32,6 +34,7 @@ public class Goons extends Actor{
 			if(action != null)
 				return action;
 			else {
+
 				for(Action action1:actions) {
 					if(action1 instanceof DropItemAction||action1 instanceof Opendoor) {
 						actions.remove(action1);
