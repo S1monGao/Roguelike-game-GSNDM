@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Goons extends Actor{
 	/*The Goons are similar to Grunt, by doing the same follow-behiour but can do twice damage as Grunt, which is 10
-	 * And 10% chance to 
+	 * And 10% chance to insult player
 	 * 
 	 */
 	private ArrayList<String> insultingList = new ArrayList<String>();
@@ -36,9 +36,8 @@ public class Goons extends Actor{
 			display.println(name +this.insultingList.get(new Random().nextInt(insultingList.size())));
 		for (ActionFactory factory : actionFactories) {
 			Action action = factory.getAction(this, map);
-			if(action != null) {
+			if(action != null)
 				return action;
-			}
 			else {
 				for(Action action1:actions) {
 					if(action1 instanceof DropItemAction) {

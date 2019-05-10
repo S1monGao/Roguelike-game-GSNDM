@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.*;
 public class DoctorMaybe extends Actor{
 
 	public DoctorMaybe(String name) {
-		super(name, 'D', 5, 5);
+		super(name, 'D', (int)2.5, 25);
 		// TODO Auto-generated constructor stub
 		this.addItemToInventory(RocketEngine.newInventoryItem("rocketEngine", 'E'));
 	}

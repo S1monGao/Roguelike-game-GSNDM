@@ -19,7 +19,7 @@ public class ExchangePlan extends Action{
 		@Override
 		public String execute(Actor actor, GameMap map) {
 			if (!(actor instanceof Player))
-				return null;
+				return actor + " try to Exchange with " + npc +" !";
 			
 			for(Item item: actor.getInventory()) {
 				if (item instanceof RocketPlan) {
