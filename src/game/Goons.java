@@ -34,7 +34,7 @@ public class Goons extends Actor{
    */
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
-		if(Math.random()<=1)
+		if(Math.random()<=0.1)
 			display.println(name +this.insultingList.get(new Random().nextInt(insultingList.size())));
 		for (ActionFactory factory : actionFactories) {
 			Action action = factory.getAction(this, map);
