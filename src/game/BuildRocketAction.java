@@ -17,7 +17,9 @@ public class BuildRocketAction extends Action{
 		this.rocketLocation = rocketLocation;
 
 	}
-
+/*To check the rocketengine and body on the pad or not.And return the right hint to palyer
+ * 
+ */
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		int counter=0;
@@ -43,12 +45,12 @@ public class BuildRocketAction extends Action{
 		else if(counter==2) {
 			 return "You do not drop rocketengine on the pad";
 		 }		 
-		return "You do not have both rocketbody and rocketengine";
+		return "You do not drop both rocketbody and rocketengine on pad";
 	}
 
 	@Override
 	public String menuDescription(Actor actor) {
-		return actor + " Put body and engine on the pad and build the rocket ";
+		return actor + "  build the rocket ";
 	}
 
 	@Override
