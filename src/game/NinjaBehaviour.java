@@ -2,7 +2,6 @@ package game;
 
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
-import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
@@ -19,7 +18,8 @@ public class NinjaBehaviour implements ActionFactory{
 
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		// TODO Auto-generated method stub
+		
+		// create the behavior for ninja
 		Location here = map.locationOf(actor);
 		Location there = map.locationOf(target);
 

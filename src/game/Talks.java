@@ -21,7 +21,7 @@ public class Talks extends Action{
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		if (!(actor instanceof Player))
-			return null;
+			return actor + " try to talk to " + npc +" !";
 		for(Item item: actor.getInventory()) {
 			if (item instanceof RocketPlan) {
 				return npc + ": Hand them over, I don¡¯t have all day!\n";
@@ -30,12 +30,10 @@ public class Talks extends Action{
 		}
 		
 		return npc + ": I can give you something that will help, but I¡¯m going to need the plans.\n";
-		//return null;	
 	}
 
 	@Override
 	public String menuDescription(Actor actor) {
-		// TODO 
 		return actor + " talks to " + this.npc;
 	}
 

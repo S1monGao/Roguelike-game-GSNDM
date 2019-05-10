@@ -24,7 +24,7 @@ public class Q extends Actor{
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		for (Action action : actions) {
-			if(action != null && (action instanceof SkipTurnAction)) //|| action instanceof MoveActorAction))
+			if(action != null && (action instanceof MoveActorAction))
 				return action;
 		}
 		

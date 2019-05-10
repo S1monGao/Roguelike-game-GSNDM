@@ -5,12 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Goons extends Actor{
+	/*The Goons are similar to Grunt, by doing the same follow-behiour but can do twice damage as Grunt, which is 10
+	 * And 10% chance to insult player
+	 * 
+	 */
 	
 	
 	public Goons(String name, Actor player) {
-		super(name, 'G', 5, 5);
+		super(name, 'G', 5, 50);
 		addBehaviour(new FollowBehaviour(player));
-		this.addItemToInventory(Key.newInventoryItem("key", 'K'));
+			this.addItemToInventory(Key.newInventoryItem("key", 'K'));
 	}
 	
 	private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();
@@ -27,6 +31,15 @@ public class Goons extends Actor{
 			Action action = factory.getAction(this, map);
 			if(action != null)
 				return action;
+			else {
+				for(Action action1:actions) {
+					if(action1 instanceof DropItemAction||action1 instanceof Opendoor) {
+						actions.remove(action1);
+					}
+				}
+				
+			}
+				
 		}
 		
 		return super.playTurn(actions,  map,  display);
