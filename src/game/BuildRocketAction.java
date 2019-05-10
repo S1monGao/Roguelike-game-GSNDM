@@ -8,6 +8,7 @@ import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.Player;
 import edu.monash.fit2099.engine.Item;
 
+//Action for building the rocket
 public class BuildRocketAction extends Action{
 	
 	private Location rocketLocation;

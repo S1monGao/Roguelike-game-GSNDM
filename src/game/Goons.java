@@ -33,7 +33,7 @@ public class Goons extends Actor{
 				return action;
 			else {
 				for(Action action1:actions) {
-					if(action1 instanceof DropItemAction) {
+					if(action1 instanceof DropItemAction||action1 instanceof Opendoor) {
 						actions.remove(action1);
 					}
 				}

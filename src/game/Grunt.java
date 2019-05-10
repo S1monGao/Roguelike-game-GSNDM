@@ -30,7 +30,7 @@ public class Grunt extends Actor {
 				return action;
 			else {
 				for(Action action1:actions) {
-					if(action1 instanceof DropItemAction) {
+					if(action1 instanceof PickUpItemAction) {
 						actions.remove(action1);
 					}
 				}

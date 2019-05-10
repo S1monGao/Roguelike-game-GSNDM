@@ -9,13 +9,14 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
+import edu.monash.fit2099.engine.PickUpItemAction;
 
 public class Ninja extends Actor{
 	
 	private Actor player;
 
 	public Ninja(String name, Actor player) {
-		super(name, 'N', 5, 5);
+		super(name, 'N', 4, 5);
 		// TODO Auto-generated constructor stub
 		addBehaviour(new NinjaBehaviour(player));
 		this.player = player;
@@ -40,6 +41,13 @@ public class Ninja extends Actor{
 			Action action = factory.getAction(this, map);
 			if(action != null)
 				return action;
+			else {
+				for(Action action1:actions) {
+					if(action1 instanceof PickUpItemAction) {
+						actions.remove(action1);
+					}
+				}
+			}	
 		}
 		
 		return super.playTurn(actions,  map,  display);

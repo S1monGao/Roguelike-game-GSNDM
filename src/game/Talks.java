@@ -34,7 +34,6 @@ public class Talks extends Action{
 
 	@Override
 	public String menuDescription(Actor actor) {
-		// TODO 
 		return actor + " talks to " + this.npc;
 	}
 

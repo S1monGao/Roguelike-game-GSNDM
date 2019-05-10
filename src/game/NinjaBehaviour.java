@@ -19,7 +19,7 @@ public class NinjaBehaviour implements ActionFactory{
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
 		
-		// TODO Auto-generated method stub
+		// create the behavior for ninja
 		Location here = map.locationOf(actor);
 		Location there = map.locationOf(target);
 

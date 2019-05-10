@@ -13,7 +13,7 @@ public class PlayerUpdated extends Player{
 
 	public PlayerUpdated(String name, char displayChar, int priority, int hitPoints) {
 		super(name, displayChar, priority, hitPoints);
-		// TODO Auto-generated constructor stub
+		// Initiate player with stun feature
 	}
 
 	public int getStunnedRound() {
@@ -36,7 +36,7 @@ public class PlayerUpdated extends Player{
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		if (this.isStunned()) {
 			this.minusRound();
-			return new SkipTurnAction();
+			return showMenu(new Actions(new SkipTurnAction()), display);
 		}
 		return showMenu(actions, display);
 	}
