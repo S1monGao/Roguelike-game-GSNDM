@@ -5,19 +5,20 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
+import edu.monash.fit2099.engine.MoveActorAction;
 import edu.monash.fit2099.engine.Player;
 import edu.monash.fit2099.engine.Item;
 
 //Action for building the rocket
 public class BuildRocketAction extends Action{
+	private GameMap moon;
 	
-	private Location rocketLocation;
 	
-	public  BuildRocketAction(Location rocketLocation) {
-		this.rocketLocation = rocketLocation;
+	public  BuildRocketAction(GameMap moon) {
+		this.moon = moon;
 
 	}
-/*To check the rocketengine and body on the pad or not.And return the right hint to palyer
+/*To check the rocketengine and body on the pad or not.And return the right hint to player
  * 
  */
 	@Override
@@ -33,8 +34,8 @@ public class BuildRocketAction extends Action{
 			 }
 		 }
 		if(counter==3) {
-			Item rocket = new Item("Rocket", 'R');
-			map.add(new Floor(), rocketLocation);
+		Item rocket = Item.newFurniture("Rocket", '^');
+		rocket.getAllowableActions().add(new MoveActorAction(moon.at(7, 2), "to Moon!"));
 			map.addItem(rocket, 22, 10);
 			return "building successful,you win the game";
 			
