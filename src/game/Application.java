@@ -54,7 +54,7 @@ public class Application {
         GameMap moon = new GameMap(groundFactory, moonMap);
         world.addMap(moon);
 		
-		Actor player = new PlayerUpdated("Player", '@', 1, 100);
+		Actor player = new PlayerUpdated("Player", '@', 1, 100, gameMap, moon);
 		world.addPlayer(player, gameMap, 2, 2);
 		//setup the actors
 		Grunt grunt = new Grunt("Mongo", player);
