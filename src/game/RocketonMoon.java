@@ -7,9 +7,9 @@ import edu.monash.fit2099.engine.MoveActorAction;
 public class RocketonMoon extends Item{
 
 	public RocketonMoon (String name,GameMap gameMap) {
-		super(name, 'R');
+		super(name, '^');
 		this.allowableActions.clear();
-		this.getAllowableActions().add(new MoveActorAction(gameMap.at(7, 2), "to Earth!"));
+		this.getAllowableActions().add(new MoveActorAction(gameMap.at(22, 10), "to Earth!"));
 		// TODO Auto-generated constructor stub
 	}
 

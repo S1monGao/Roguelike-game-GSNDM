@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import java.util.List;
 
+import edu.monash.fit2099.demo.DemoSkills;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.FancyGroundFactory;
@@ -18,7 +19,7 @@ public class Application {
 	public static void main(String[] args) {
 		World world = new World(new Display());
 
-		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(),new Door());
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(),new Door(),new Crater());
 		GameMap gameMap;
 
 		List<String> map = Arrays.asList(
@@ -38,12 +39,18 @@ public class Application {
 		
 
         List<String> moonMap = Arrays.asList(
-                ".............",
-                ".............",
-                ".............",
-                ".............",
-                ".............",
-                ".............");
+                "ooooooooooooo",
+                "ooooooooooooo",
+                "ooooooooooooo",
+                "ooooooooooooo",
+                "ooooooooooooo.",
+                "ooooooooooooo",
+                "ooooooooooooo",
+                "ooooooooooooo",
+                "ooooooooooooo",
+                "ooooooooooooo",
+                "ooooooooooooo",
+                "ooooooooooooo");
         GameMap moon = new GameMap(groundFactory, moonMap);
         world.addMap(moon);
 		
@@ -55,7 +62,7 @@ public class Application {
 		Grunt grunt2 = new Grunt("Norbert", player);
 		//gameMap.addActor(grunt2,  10, 10);
 		Q Q = new Q("Q",player);
-		gameMap.addActor(Q, 7, 7);
+		//gameMap.addActor(Q, 7, 7);
 		Goons goons1 = new Goons("Simon", player);
 		//gameMap.addActor(goons1,  1, 1);
 		Goons goons2 = new Goons("Red", player);
@@ -69,14 +76,31 @@ public class Application {
 		player.addItemToInventory(new RocketBody());
 		player.addItemToInventory(new RocketEngine());
 		
+        Item spaceSuit = new Item("space suit", '[');
+        spaceSuit.addSkill(TravelinSpaceSkill.SPACETRAVELLER);
+        gameMap.addItem(spaceSuit, 22, 9);
+        
+        Item dispenser =Item.newFurniture("Oxygen dispenser", '&');
+        gameMap.addItem(dispenser, 22, 8);
+        
+        
+		
 		
 		Ninja ninja = new Ninja("Ninja",player);
 		//gameMap.addActor(ninja, 9, 9);
 		
-		Item rocket2 = Item.newFurniture("Rocket", '^');
-        rocket2.getAllowableActions().add(new MoveActorAction(gameMap.at(23, 10), "to Earth!"));
+		RocketonMoon rocket2 = new RocketonMoon("Rocket", gameMap);
         moon.addItem(rocket2, 7, 2);
 
+        Grunt grunt3 = new Grunt("Mongo", player);
+		//moon.addActor(grunt3, 0, 0);
+        Goons goons3 = new Goons("Simon", player);
+		//moon.addActor(goons3,  1, 1);
+        
+        Ninja ninja1 = new Ninja("Ninja",player);
+		//moon.addActor(ninja1, 9, 9);
+        
+        
 		world.run();
 	}
 }

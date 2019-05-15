@@ -31,7 +31,7 @@ public class Ninja extends Actor{
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		
-		if(Math.random()<=0.5 && (this.distance(map.locationOf(this),map.locationOf(player))<=6)) {
+		if(Math.random()<=0.5 && (this.distance(map.locationOf(this),map.locationOf(player))<=5)) {
 			display.println(player + " got stunned by " + this);
 			((PlayerUpdated) player).addRound(2);
 

@@ -9,7 +9,7 @@ import edu.monash.fit2099.engine.Player;
 import edu.monash.fit2099.engine.SkipTurnAction;
 
 public class PlayerUpdated extends Player{
-	
+	private int oxygen = 0;
 	private int stunnedRound = 0;
 
 	public PlayerUpdated(String name, char displayChar, int priority, int hitPoints) {
@@ -34,6 +34,19 @@ public class PlayerUpdated extends Player{
 		return stunnedRound > 0;
 	}
 	
+	public void addoxygen() {
+		this.oxygen+=10;
+	}
+	public void moveninMoon() {
+		this.oxygen-=1;
+	}
+	public boolean checkOxygen() {
+		
+		if(this.oxygen>0) {
+			return true;}
+		else
+			return false;	
+	}
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		if (this.isStunned()) {
 			this.minusRound();
@@ -42,6 +55,12 @@ public class PlayerUpdated extends Player{
 		return showMenu(actions, display);
 	}
 	
+@Override 
+protected IntrinsicWeapon getIntrinsicWeapon() {
+	return new IntrinsicWeapon(999, "punches");
+}
 
+	
+	
 }
 
