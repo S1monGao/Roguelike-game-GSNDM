@@ -80,7 +80,8 @@ public class Application {
         spaceSuit.addSkill(TravelinSpaceSkill.SPACETRAVELLER);
         gameMap.addItem(spaceSuit, 22, 9);
         
-        Item dispenser =Item.newFurniture("Oxygen dispenser", '&');
+        Item dispenser =new Item("Oxygen dispenser", '&');
+        dispenser.getAllowableActions().add(new ProduceTank());
         gameMap.addItem(dispenser, 22, 8);
         
         
