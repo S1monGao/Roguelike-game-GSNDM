@@ -20,7 +20,7 @@ public class DoctorMaybe extends Actor{
 				return action;
 		}
 		
-		return super.playTurn(actions,  map,  display);
+		return new SkipTurnAction();
 	}
 	
 	

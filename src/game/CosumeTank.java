@@ -11,17 +11,18 @@ public class CosumeTank extends Action{
 	
 	@Override
 	public  String execute(Actor actor, GameMap map){
-		((PlayerUpdated) actor).addoxygen();
+		
 		List<Item> itemlist = map.at(map.locationOf(actor).x(), map.locationOf(actor).y()).getItems();
 		for(int i =0;i<itemlist.size();i++) {
 			if(itemlist.get(i).toString()=="tank")
 			{
 				map.locationOf(actor).removeItem(itemlist.get(i));
+				((PlayerUpdated) actor).addoxygen();
+				return "Your oxygen point refilled.";
 			}
 		}
-		return "Your oxygen point added 10";
 
-			
+			return "No Oxygen tank found in this location.";
 			
 	}
 	

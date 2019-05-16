@@ -12,17 +12,17 @@ public class ProduceTank extends Action {
 
 @Override
 	public  String execute(Actor actor, GameMap map){
-		Item tank = Item.newFurniture("tank", 'T');
-		tank.getAllowableActions().add(new CosumeTank());
+		
 		List<Item> itemlist = map.at(map.locationOf(actor).x(), map.locationOf(actor).y()).getItems();
 		for(Item item:itemlist) {
 			if(item.toString()=="tank") {
 				return "There is a tank on your locations";
 			}
 		}
-		map.addItem(tank,map.locationOf(actor).x(),map.locationOf(actor).y());
+		((PlayerUpdated)actor).addBuildRound();
 		return "producing success";
-			
+		
+		
 			
 	}
 	
