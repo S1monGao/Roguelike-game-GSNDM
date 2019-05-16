@@ -10,6 +10,7 @@ import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.PickUpItemAction;
+import edu.monash.fit2099.engine.SkipTurnAction;
 
 public class Ninja extends Actor{
 	
@@ -50,7 +51,7 @@ public class Ninja extends Actor{
 			}	
 		}
 		
-		return super.playTurn(actions,  map,  display);
+		return new SkipTurnAction();
 	}
 	
 	private int distance(Location a, Location b) {
