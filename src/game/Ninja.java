@@ -10,6 +10,7 @@ import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.PickUpItemAction;
+import edu.monash.fit2099.engine.SkipTurnAction;
 
 public class Ninja extends Actor{
 	
@@ -31,7 +32,7 @@ public class Ninja extends Actor{
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		
-		if(Math.random()<=0.5 && (this.distance(map.locationOf(this),map.locationOf(player))<=6)) {
+		if(Math.random()<=0.5 && (this.distance(map.locationOf(this),map.locationOf(player))<=5)) {
 			display.println(player + " got stunned by " + this);
 			((PlayerUpdated) player).addRound(2);
 
@@ -50,7 +51,7 @@ public class Ninja extends Actor{
 			}	
 		}
 		
-		return super.playTurn(actions,  map,  display);
+		return new SkipTurnAction();
 	}
 	
 	private int distance(Location a, Location b) {
