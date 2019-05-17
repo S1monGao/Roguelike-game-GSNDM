@@ -61,7 +61,7 @@ public class PlayerUpdated extends Player{
 	}
 	
 	public void addBuildRound() {
-		buildRound += 1;
+		buildRound += 2;
 	}
 	
 	public void buildTank(GameMap map) {
@@ -88,11 +88,10 @@ public class PlayerUpdated extends Player{
 		
 		if (buildRound>0) {
 			buildRound -= 1;
-			display.println("Player is building the tank.");
 			buildTank(map);
-			return showMenu(new Actions(new SkipTurnAction()), display);
-			
-		}
+			return showMenu(actions, display);	
+			}
+
 		
 		return showMenu(actions, display);
 	}

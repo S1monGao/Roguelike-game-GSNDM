@@ -19,8 +19,15 @@ public class ProduceTank extends Action {
 				return "There is a tank on your locations";
 			}
 		}
+		if(((PlayerUpdated)actor).getBuildRound()==0) {
 		((PlayerUpdated)actor).addBuildRound();
-		return "producing success";
+		}
+		
+		if(((PlayerUpdated)actor).getBuildRound()==1) {
+			return "Player is building the tank";
+		}
+			
+		return "Player start building the tank";
 		
 		
 			
