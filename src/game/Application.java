@@ -13,7 +13,7 @@ import edu.monash.fit2099.engine.World;
 public class Application {
 
 	public static void main(String[] args) {
-		World world = new World(new Display());
+		NewWorld world = new NewWorld(new Display());
 
 		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(),new Door(),new Crater(),new PoolOfWater());
 		GameMap gameMap;
@@ -105,6 +105,8 @@ public class Application {
         
         YugoMaxx finboss = new YugoMaxx("yugomaxx",player);
         moon.addActor(finboss, 12, 1);
+        
+        player.addItemToInventory(new Item("Sleeping yugomaxx", 'y'));
         
 		world.run();
 	}

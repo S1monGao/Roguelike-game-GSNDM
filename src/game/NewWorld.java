@@ -1,30 +1,36 @@
 package game;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 import edu.monash.fit2099.engine.Actor;
-import edu.monash.fit2099.engine.ActorLocations;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.World;
 
 public class NewWorld extends World{
 
-	private Display display;
-	private List<GameMap> maps = new ArrayList<GameMap>();
-	private ActorLocations actorLocations = new ActorLocations();
-	private Actor player; // We only draw the particular map this actor is on.
+	private Actor player;
 
-
-	/**
-	 *
-	 * @param display
-	 */
 	public NewWorld(Display display) {
 		super(display);
 	}
+	
+	/**
+	 * Add the player to a map.
+	 *
+	 * The player is special: we only display the map that the player is on.
+	 * 
+	 * @param player the player to add
+	 * @param map the map where the player is to be added
+	 * @param y y coordinate of the player
+	 * @param x x coordinate of the player
+	 */
+	@Override
+	public void addPlayer(Actor player, GameMap map, int y, int x) {
+		this.player = (PlayerUpdated) player;
+		super.addPlayer(player, map, y, x);
+	}
+	
+	
 	/**
 	 * Run the game.
 	 *
@@ -40,18 +46,33 @@ public class NewWorld extends World{
 	 */
 	@Override
 	public void run() {
-		if(player == null)
-			throw new IllegalStateException();
 		
-		while (stillRunning()) {
-			GameMap playersMap = actorLocations.locationOf(player).map();
-			playersMap.draw(display);
-			for (Actor actor : actorLocations) {
-				processActorTurn(actor);
-			}
+		if (((PlayerUpdated) player).win()) {
+			endGameMessage();
+			System.exit(0);
 		}
-		display.println(endGameMessage());
+		super.run();	
+			
 	}
+	
+	/**
+	 * Return a string that can be displayed when the game ends.
+	 *
+	 * @return the string "Game Over"
+	 */
+	protected String endGameMessage() {
+		// Not a bad idea, but not in keeping with the current theme.
+		// return "It's game over, man.";
+		if(!this.player.isConscious()) {
+			return "Player loses !\nGame Over";
+		}
+		else if(((PlayerUpdated) player).win()) {
+			return "Player Wins !\nGame Over";
+		}
+		return "";
+	}
+
+
 
 	
 }

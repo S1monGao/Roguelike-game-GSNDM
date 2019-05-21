@@ -2,6 +2,8 @@ package game;
 
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
+import edu.monash.fit2099.engine.Actor;
+import edu.monash.fit2099.engine.AttackAction;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.IntrinsicWeapon;
@@ -11,12 +13,13 @@ import edu.monash.fit2099.engine.Player;
 import edu.monash.fit2099.engine.SkipTurnAction;
 
 public class PlayerUpdated extends Player{
-	private int oxygen = 100000;
+	private int oxygen = 1000000;
 	private int stunnedRound = 0;
 	private int buildRound = 0;
 	private GameMap earth;
 	private GameMap moon;
 	private GameMap currentMap;
+	private boolean quit;
 
 	public PlayerUpdated(String name, char displayChar, int priority, int hitPoints,GameMap earth,GameMap moon) {
 		super(name, displayChar, priority, hitPoints);
@@ -101,13 +104,31 @@ public class PlayerUpdated extends Player{
 		
 	}
 	
+	public boolean win() {
+		if (currentMap == earth) {
+			for(Item item:this.getInventory()) {
+				if(item.toString()=="Sleeping yugomaxx")
+					return true;
+			}
+		}
+		return false;
+	}
 	
-	@Override 
+
+	public boolean isQuitZera() {
+		return quit;
+	}
+	
+	@Override
 	protected IntrinsicWeapon getIntrinsicWeapon() {
 		return new IntrinsicWeapon(999, "punches");
 	}
 
 	
-	
+	@Override
+	protected Action showMenu(Actions actions, Display display) {
+		actions.add(new QuitAction());
+		return super.showMenu(actions, display);
+	}
 }
 
