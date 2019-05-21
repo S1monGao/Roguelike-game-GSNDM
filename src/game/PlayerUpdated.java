@@ -97,8 +97,8 @@ public class PlayerUpdated extends Player{
 		}
 
 		
-		//return showMenu(actions, display);
-		return new SkipTurnAction();
+		return showMenu(actions, display);
+		
 	}
 	
 	

@@ -42,10 +42,10 @@ public class Ninja extends Actor{
 					return action;
 			}
 			
-			return new SkipTurnAction();
+			return super.playTurn(actions, map, display);
 		}
 		
-		return new SkipTurnAction();
+		return super.playTurn(actions, map, display);
 	}
 	
 	private int distance(Location a, Location b) {

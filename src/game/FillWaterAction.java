@@ -24,7 +24,7 @@ public class FillWaterAction extends Action{
 	@Override
 	public String menuDescription(Actor actor) {
 		// TODO Auto-generated method stub
-		return actor + "fills the Watergun";
+		return actor + " fills the Watergun";
 	}
 
 	@Override

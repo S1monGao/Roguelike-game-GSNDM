@@ -56,7 +56,7 @@ public class Goons extends Actor{
 			}
 		}
 		
-		return new SkipTurnAction();
+		return super.playTurn(actions, map, display);
 	}
 	
 	@Override
