@@ -11,16 +11,18 @@ public class Goons extends Actor{
 	 * 
 	 */
 	private ArrayList<String> insultingList = new ArrayList<String>();
+	private PlayerUpdated player;
 	
 
-	public Goons(String name, Actor player) {
+	public Goons(String name, PlayerUpdated player) {
 		super(name, 'G', 5, 50);
 		addBehaviour(new FollowBehaviour(player));
 		this.addItemToInventory(Key.newInventoryItem("key", 'K'));
 		insultingList.add(" says: I'm gonna catch you.");
 		insultingList.add(" says: I'm gonna kill you.");
-		insultingList.add(" says: You are so stupid");
-		insultingList.add(" says: You are so silly");
+		insultingList.add(" says: You are so stupid!");
+		insultingList.add(" says: You are so silly!");
+		this.player = player;
 	}
 	
 	
@@ -34,22 +36,24 @@ public class Goons extends Actor{
    */
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
-		if(Math.random()<=0.1)
-			display.println(name +this.insultingList.get(new Random().nextInt(insultingList.size())));
-		for (ActionFactory factory : actionFactories) {
-			Action action = factory.getAction(this, map);
-			if(action != null)
-				return action;
-			else {
-
-				for(Action action1:actions) {
-					if(action1 instanceof DropItemAction||action1 instanceof Opendoor) {
-						actions.remove(action1);
+		if(player.getCurrentMap()==map) {
+			if(Math.random()<=0.1)
+				display.println(name +this.insultingList.get(new Random().nextInt(insultingList.size())));
+			for (ActionFactory factory : actionFactories) {
+				Action action = factory.getAction(this, map);
+				if(action != null)
+					return action;
+				else {
+	
+					for(Action action1:actions) {
+						if(action1 instanceof DropItemAction||action1 instanceof Opendoor) {
+							actions.remove(action1);
+						}
 					}
+					
 				}
-				
+					
 			}
-				
 		}
 		
 		return new SkipTurnAction();

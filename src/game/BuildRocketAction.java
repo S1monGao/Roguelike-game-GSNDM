@@ -4,9 +4,7 @@ import java.util.List;
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.MoveActorAction;
-import edu.monash.fit2099.engine.Player;
 import edu.monash.fit2099.engine.Item;
 
 //Action for building the rocket
@@ -34,11 +32,10 @@ public class BuildRocketAction extends Action{
 			 }
 		 }
 		if(counter==3) {
-		Item rocket = Item.newFurniture("Rocket", '^');
-		rocket.getAllowableActions().add(new MoveActorAction(moon.at(7, 2), "to Moon!"));
+			Item rocket = Item.newFurniture("Rocket", '^');
+			rocket.getAllowableActions().add(new MoveActorAction(moon.at(7, 2), "to Moon!"));
 			map.addItem(rocket, 22, 10);
-			return "building successful,you win the game";
-			
+			return "Rocket building successful!";
 		}
 		else if(counter==1) {
 			return "You do not drop rocketbody on the pad";
@@ -51,7 +48,7 @@ public class BuildRocketAction extends Action{
 
 	@Override
 	public String menuDescription(Actor actor) {
-		return actor + "  build the rocket ";
+		return actor + " build the rocket ";
 	}
 
 	@Override

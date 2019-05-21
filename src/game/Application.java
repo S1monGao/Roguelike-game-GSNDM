@@ -4,14 +4,10 @@ import java.util.Arrays;
 
 import java.util.List;
 
-import edu.monash.fit2099.demo.DemoSkills;
-import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.FancyGroundFactory;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
-import edu.monash.fit2099.engine.MoveActorAction;
-import edu.monash.fit2099.engine.Player;
 import edu.monash.fit2099.engine.World;
 
 public class Application {
@@ -19,7 +15,7 @@ public class Application {
 	public static void main(String[] args) {
 		World world = new World(new Display());
 
-		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(),new Door(),new Crater());
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(),new Door(),new Crater(),new PoolOfWater());
 		GameMap gameMap;
 
 		List<String> map = Arrays.asList(
@@ -30,9 +26,9 @@ public class Application {
 				"....#####....##+###....",
 				".......................",
 				".......................",
-				".......................",
-				".......................",
-				".......................",
+				"...~~~~................",
+				"...~~~~................",
+				"...~~~~................",
 				".......................");
 		gameMap = new GameMap(groundFactory, map);
 		world.addMap(gameMap);
@@ -54,7 +50,7 @@ public class Application {
         GameMap moon = new GameMap(groundFactory, moonMap);
         world.addMap(moon);
 		
-		Actor player = new PlayerUpdated("Player", '@', 1, 100, gameMap, moon);
+        PlayerUpdated player = new PlayerUpdated("Player", '@', 1, 100, gameMap, moon);
 		world.addPlayer(player, gameMap, 2, 2);
 		//setup the actors
 		Grunt grunt = new Grunt("Mongo", player);
@@ -67,7 +63,7 @@ public class Application {
 		gameMap.addActor(goons1,  1, 1);
 		Goons goons2 = new Goons("Red", player);
 		gameMap.addActor(goons2,  10, 8);
-		DoctorMaybe doc = new DoctorMaybe("DoctorMaybe");
+		DoctorMaybe doc = new DoctorMaybe("DoctorMaybe",player);
 		gameMap.addActor(doc, 5, 2);
 		RocketPlan rocketplan = new RocketPlan();
 		gameMap.addItem(rocketplan,16,3);
@@ -95,12 +91,15 @@ public class Application {
 
         Grunt grunt3 = new Grunt("Mongo2", player);
 		moon.addActor(grunt3, 0, 0);
+		grunt3.addSkill(TravelinSpaceSkill.SPACETRAVELLER);
+		
         Goons goons3 = new Goons("Simon2", player);
 		moon.addActor(goons3,  1, 1);
-        
+		goons3.addSkill(TravelinSpaceSkill.SPACETRAVELLER);
+		
         Ninja ninja1 = new Ninja("Ninja2",player);
         moon.addActor(ninja1, 9, 9);
-        
+        ninja1.addSkill(TravelinSpaceSkill.SPACETRAVELLER);
         
 		world.run();
 	}

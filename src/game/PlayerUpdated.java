@@ -11,7 +11,7 @@ import edu.monash.fit2099.engine.Player;
 import edu.monash.fit2099.engine.SkipTurnAction;
 
 public class PlayerUpdated extends Player{
-	private int oxygen = 10;
+	private int oxygen = 100000;
 	private int stunnedRound = 0;
 	private int buildRound = 0;
 	private GameMap earth;
@@ -72,6 +72,10 @@ public class PlayerUpdated extends Player{
 		}
 	}
 	
+	public GameMap getCurrentMap() {
+		return currentMap;
+	}
+	
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		currentMap = map;
 		if (this.checkOxygen()&& map == moon) {
@@ -97,10 +101,11 @@ public class PlayerUpdated extends Player{
 		return showMenu(actions, display);
 	}
 	
-@Override 
-protected IntrinsicWeapon getIntrinsicWeapon() {
-	return new IntrinsicWeapon(999, "punches");
-}
+	
+	@Override 
+	protected IntrinsicWeapon getIntrinsicWeapon() {
+		return new IntrinsicWeapon(999, "punches");
+	}
 
 	
 	

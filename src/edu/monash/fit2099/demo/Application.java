@@ -53,6 +53,12 @@ public class Application {
         bug.addItemToInventory(Item.newInventoryItem("rock", '*'));
         bug.actionFactories.add(new SpitBehaviour(player));
         bug.actionFactories.add(new FollowBehaviour(player));
+        Bug bug2 = new Bug();
+        gameMap.addActor(bug2, 0, 3);
+        
+        Bug bug3 = new Bug();
+        gameMap.addActor(bug3, 0, 4);
+        
         gameMap.addActor(bug, 0, 2);
 
         world.run();

@@ -8,12 +8,18 @@ public class WaterGun extends Item{
 
 	public WaterGun(String name) {
 		super(name, 'W');
-		// TODO Auto-generated constructor stub
-		
 	}
 
 	public void fill() {
 		filled = true;
+	}
+	
+	public void shoot() {
+		filled = false;
+	}
+	
+	public boolean isFilled() {
+		return filled;
 	}
 	
 }

@@ -1,16 +1,15 @@
 package game;
 
-import java.util.*;
-
-
 import edu.monash.fit2099.engine.*;
 
 
 public class Q extends Actor{
 
-	public Q(String name, Actor player) {
+	private PlayerUpdated player;
+	
+	public Q(String name, PlayerUpdated player) {
 		super(name, 'Q', 5, 99999999);
-		
+		this.player=player;
 	}
 	
 	
@@ -23,20 +22,21 @@ public class Q extends Actor{
 	
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
-		for (Action action : actions) {
-			if(action != null && (action instanceof MoveActorAction))
-				return action;
-			else {
-				for(Action action1:actions) {
-					if(action1 instanceof AttackAction || action1 instanceof PickUpItemAction) {
-						actions.remove(action1);
+		if(player.getCurrentMap()==map) {
+			for (Action action : actions) {
+				if(action != null && (action instanceof MoveActorAction))
+					return action;
+				else {
+					for(Action action1:actions) {
+						if(action1 instanceof AttackAction || action1 instanceof PickUpItemAction) {
+							actions.remove(action1);
+						}
 					}
+					
 				}
-				
-			}
+			}	
+			return super.playTurn(actions,  map,  display);
 		}
-		
-		return super.playTurn(actions,  map,  display);
+		return new SkipTurnAction();
 	}
-	
 }
