@@ -106,7 +106,7 @@ public class Application {
         YugoMaxx finboss = new YugoMaxx("yugomaxx",player);
         moon.addActor(finboss, 12, 1);
         
-        player.addItemToInventory(new Item("Sleeping yugomaxx", 'y'));
+        //player.addItemToInventory(new Item("Sleeping yugomaxx", 'y'));
         
 		world.run();
 	}

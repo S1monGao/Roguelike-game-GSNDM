@@ -81,6 +81,7 @@ public class PlayerUpdated extends Player{
 	
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		currentMap = map;
+		this.win(display);
 		if (this.checkOxygen()&& map == moon) {
 			this.moveninMoon();
 		}
@@ -104,11 +105,14 @@ public class PlayerUpdated extends Player{
 		
 	}
 	
-	public boolean win() {
+	public boolean win(Display display) {
 		if (currentMap == earth) {
 			for(Item item:this.getInventory()) {
-				if(item.toString()=="Sleeping yugomaxx")
+				if(item.toString()=="Sleeping yugomaxx") {
+					display.println("Player Wins !\nGame Over");
+					System.exit(0);
 					return true;
+				}
 			}
 		}
 		return false;

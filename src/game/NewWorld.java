@@ -32,30 +32,6 @@ public class NewWorld extends World{
 	
 	
 	/**
-	 * Run the game.
-	 *
-	 * On each iteration the gameloop does the following:
-	 *  - displays the player's map
-	 *  - processes the actions of every Actor in the game, regardless of map
-	 *
-	 * We could either only process the actors on the current map, which would make
-	 * time stop on the other maps, or we could process all the actors.  We chose to
-	 * process all the actors.
-	 *
-	 * @throws IllegalStateException if the player doesn't exist
-	 */
-	@Override
-	public void run() {
-		
-		if (((PlayerUpdated) player).win()) {
-			endGameMessage();
-			System.exit(0);
-		}
-		super.run();	
-			
-	}
-	
-	/**
 	 * Return a string that can be displayed when the game ends.
 	 *
 	 * @return the string "Game Over"
@@ -66,9 +42,7 @@ public class NewWorld extends World{
 		if(!this.player.isConscious()) {
 			return "Player loses !\nGame Over";
 		}
-		else if(((PlayerUpdated) player).win()) {
-			return "Player Wins !\nGame Over";
-		}
+
 		return "";
 	}
 
