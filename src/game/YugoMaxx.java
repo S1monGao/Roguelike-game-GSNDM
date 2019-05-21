@@ -6,6 +6,7 @@ import edu.monash.fit2099.engine.AttackAction;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.IntrinsicWeapon;
+import edu.monash.fit2099.engine.MoveActorAction;
 import edu.monash.fit2099.engine.SkipTurnAction;
 
 public class YugoMaxx extends Actor{
@@ -61,6 +62,11 @@ public class YugoMaxx extends Actor{
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		if(player.getCurrentMap()==map) {
+			for(Action action1:actions) {
+				if(!(action1 instanceof MoveActorAction||action1 instanceof AttackAction)) {
+					actions.remove(action1);
+				}
+			}
 			return super.playTurn(actions, map, display);
 		}
 		return new SkipTurnAction();

@@ -28,7 +28,7 @@ public class Q extends Actor{
 					return action;
 				else {
 					for(Action action1:actions) {
-						if(action1 instanceof AttackAction || action1 instanceof PickUpItemAction) {
+						if(!(action1 instanceof MoveActorAction)) {
 							actions.remove(action1);
 						}
 					}

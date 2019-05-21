@@ -34,15 +34,17 @@ public class Grunt extends Actor {
 					return action;
 				else {
 					for(Action action1:actions) {
-						if(action1 instanceof PickUpItemAction) {
+						if(!(action1 instanceof MoveActorAction||action1 instanceof AttackAction)) {
 							actions.remove(action1);
 						}
 					}
-					
 				}
 			}
+			
+			return super.playTurn(actions, map, display);
 		
 		}
+		
 		return new SkipTurnAction();
 	}
 }

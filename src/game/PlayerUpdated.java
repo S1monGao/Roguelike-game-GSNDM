@@ -94,10 +94,11 @@ public class PlayerUpdated extends Player{
 			buildRound -= 1;
 			buildTank(map);
 			return showMenu(actions, display);	
-			}
+		}
 
 		
-		return showMenu(actions, display);
+		//return showMenu(actions, display);
+		return new SkipTurnAction();
 	}
 	
 	

@@ -39,7 +39,7 @@ public class Application {
                 "ooooooooooooo",
                 "ooooooooooooo",
                 "ooooooooooooo",
-                "ooooooooooooo.",
+                "ooooooooooooo",
                 "ooooooooooooo",
                 "ooooooooooooo",
                 "ooooooooooooo",
@@ -50,7 +50,7 @@ public class Application {
         GameMap moon = new GameMap(groundFactory, moonMap);
         world.addMap(moon);
 		
-        PlayerUpdated player = new PlayerUpdated("Player", '@', 1, 100, gameMap, moon);
+        PlayerUpdated player = new PlayerUpdated("Player", '@', 1, 10, gameMap, moon);
 		world.addPlayer(player, gameMap, 2, 2);
 		//setup the actors
 		Grunt grunt = new Grunt("Mongo", player);
