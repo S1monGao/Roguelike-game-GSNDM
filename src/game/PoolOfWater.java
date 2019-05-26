@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
 
 public class PoolOfWater extends Ground{
-
+	//a pool of water that can fill the water gun
 	public PoolOfWater() {
 		super('~');
 	}

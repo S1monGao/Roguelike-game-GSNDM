@@ -2,18 +2,15 @@ package game;
 
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
-import edu.monash.fit2099.engine.Actor;
-import edu.monash.fit2099.engine.AttackAction;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.IntrinsicWeapon;
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.MoveActorAction;
 import edu.monash.fit2099.engine.Player;
 import edu.monash.fit2099.engine.SkipTurnAction;
 
 public class PlayerUpdated extends Player{
-	private int oxygen = 1000000;
+	private int oxygen = 10;
 	private int stunnedRound = 0;
 	private int buildRound = 0;
 	private GameMap earth;
@@ -46,7 +43,7 @@ public class PlayerUpdated extends Player{
 	}
 	
 	public void addoxygen() {
-		this.oxygen = 10;
+		this.oxygen += 10;
 	}
 	public void moveninMoon() {
 		this.oxygen -= 1;
@@ -123,10 +120,6 @@ public class PlayerUpdated extends Player{
 		return quit;
 	}
 	
-	@Override
-	protected IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(999, "punches");
-	}
 
 	
 	@Override

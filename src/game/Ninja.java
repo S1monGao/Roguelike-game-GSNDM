@@ -17,7 +17,6 @@ public class Ninja extends Actor{
 
 	public Ninja(String name, PlayerUpdated player) {
 		super(name, 'N', 4, 15);
-		// TODO Auto-generated constructor stub
 		addBehaviour(new NinjaBehaviour(player));
 		this.player = player;
 	}

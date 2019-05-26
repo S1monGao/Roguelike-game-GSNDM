@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
 public class Grunt extends Actor {
 	
 	private PlayerUpdated player;

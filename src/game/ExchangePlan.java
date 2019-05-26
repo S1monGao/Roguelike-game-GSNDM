@@ -7,7 +7,7 @@ import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Player;
 
 public class ExchangePlan extends Action{
-
+	//exchange rocket plan with NPC
 		private Actor npc;	
 
 		public ExchangePlan(Actor player, Actor npc) {

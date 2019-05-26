@@ -7,7 +7,7 @@ import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Player;
 
 public class Talks extends Action{
-
+	//talk with NPC
 	private Actor npc;	
 
 	public Talks(Actor player, Actor npc) {

@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 
 public class SquirtingAction extends Action{
-
+	//Squiring water on the final boss makes it venerable to damage
 	private Actor subject;
 	private Actor actor;
 	

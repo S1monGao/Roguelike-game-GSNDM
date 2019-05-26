@@ -8,7 +8,7 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 
 public class CosumeTank extends Action{
-	
+	//consume the tank and restore oxygen point
 	@Override
 	public  String execute(Actor actor, GameMap map){
 		

@@ -10,7 +10,7 @@ import edu.monash.fit2099.engine.MoveActorAction;
 import edu.monash.fit2099.engine.SkipTurnAction;
 
 public class YugoMaxx extends Actor{
-
+	//final boss
 	private boolean exoskeleton = true;
 	private PlayerUpdated player;
 	

@@ -6,10 +6,9 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 
 public class FillWaterAction extends Action{
-
+	//fill up the water in water gun
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		// TODO Auto-generated method stub
 		for(Item item: actor.getInventory()) {
 			if (item instanceof WaterGun) {
 				((WaterGun) item).fill();
@@ -23,13 +22,11 @@ public class FillWaterAction extends Action{
 
 	@Override
 	public String menuDescription(Actor actor) {
-		// TODO Auto-generated method stub
 		return actor + " fills the Watergun";
 	}
 
 	@Override
 	public String hotKey() {
-		// TODO Auto-generated method stub
 		return "";
 	}
 

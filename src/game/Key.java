@@ -6,7 +6,7 @@ public class Key extends Item{
 
 	public Key(String name) {
 		super(name, 'K');
-		// TODO Auto-generated constructor stub
+		// key to open any door
 	}
 
 }

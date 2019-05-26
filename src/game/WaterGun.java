@@ -3,7 +3,7 @@ package game;
 import edu.monash.fit2099.engine.Item;
 
 public class WaterGun extends Item{
-	
+	//water gun as an item
 	private boolean filled = false;
 
 	public WaterGun(String name) {

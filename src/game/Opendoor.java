@@ -6,6 +6,7 @@ import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.Item;
 
 public class Opendoor extends Action {
+	//action used when opening a door
 	private Location doorLocation;
 	private String direction;
 	

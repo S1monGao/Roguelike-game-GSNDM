@@ -4,7 +4,7 @@ import edu.monash.fit2099.engine.*;
 
 
 public class Q extends Actor{
-
+	//NPC Q
 	private PlayerUpdated player;
 	
 	public Q(String name, PlayerUpdated player) {

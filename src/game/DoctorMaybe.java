@@ -4,7 +4,7 @@ package game;
 import edu.monash.fit2099.engine.*;
 
 public class DoctorMaybe extends Actor{
-	
+	//mini boss carrying rocket engine
 	private PlayerUpdated player;
 
 	public DoctorMaybe(String name,PlayerUpdated player) {

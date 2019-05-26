@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
 import game.Opendoor;
-
+// a door that can be open with a key
 
 public class Door extends Ground {
 
