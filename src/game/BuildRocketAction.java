@@ -12,6 +12,9 @@ public class BuildRocketAction extends Action{
 	private GameMap moon;
 	
 	
+	/**
+	 * @param moon
+	 */
 	public  BuildRocketAction(GameMap moon) {
 		this.moon = moon;
 

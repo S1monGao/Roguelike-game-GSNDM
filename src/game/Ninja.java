@@ -15,6 +15,10 @@ public class Ninja extends Actor{
 	
 	private PlayerUpdated player;
 
+	/**
+	 * @param name
+	 * @param player
+	 */
 	public Ninja(String name, PlayerUpdated player) {
 		super(name, 'N', 4, 15);
 		addBehaviour(new NinjaBehaviour(player));
@@ -23,10 +27,14 @@ public class Ninja extends Actor{
 	
 	private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();
 
+	/**
+	 * @param behaviour
+	 */
 	private void addBehaviour(ActionFactory behaviour) {
 		actionFactories.add(behaviour);
 	}
 	
+
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		if(player.getCurrentMap()==map) {
@@ -44,7 +52,7 @@ public class Ninja extends Actor{
 			return super.playTurn(actions, map, display);
 		}
 		
-		return super.playTurn(actions, map, display);
+		return new SkipTurnAction();
 	}
 	
 	private int distance(Location a, Location b) {

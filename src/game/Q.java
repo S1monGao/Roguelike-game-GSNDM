@@ -7,6 +7,10 @@ public class Q extends Actor{
 	//NPC Q
 	private PlayerUpdated player;
 	
+	/**
+	 * @param name
+	 * @param player
+	 */
 	public Q(String name, PlayerUpdated player) {
 		super(name, 'Q', 5, 99999999);
 		this.player=player;

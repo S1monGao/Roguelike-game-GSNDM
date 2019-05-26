@@ -14,6 +14,10 @@ public class Goons extends Actor{
 	private PlayerUpdated player;
 	
 
+	/**
+	 * @param name
+	 * @param player
+	 */
 	public Goons(String name, PlayerUpdated player) {
 		super(name, 'G', 5, 50);
 		addBehaviour(new FollowBehaviour(player));
@@ -58,7 +62,7 @@ public class Goons extends Actor{
 			}
 		}
 		
-		return super.playTurn(actions, map, display);
+		return new SkipTurnAction();
 	}
 	
 	@Override

@@ -10,6 +10,10 @@ public class SquirtingAction extends Action{
 	private Actor subject;
 	private Actor actor;
 	
+	/**
+	 * @param actor
+	 * @param subject
+	 */
 	public SquirtingAction(Actor actor,Actor subject) {
 		this.subject = subject;
 		this.actor = actor;

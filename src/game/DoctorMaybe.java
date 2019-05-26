@@ -7,6 +7,10 @@ public class DoctorMaybe extends Actor{
 	//mini boss carrying rocket engine
 	private PlayerUpdated player;
 
+	/**
+	 * @param name
+	 * @param player
+	 */
 	public DoctorMaybe(String name,PlayerUpdated player) {
 		super(name, 'D', 5/2, 25);
 		this.player = player;

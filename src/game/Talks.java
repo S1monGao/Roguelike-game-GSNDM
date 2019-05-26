@@ -10,6 +10,10 @@ public class Talks extends Action{
 	//talk with NPC
 	private Actor npc;	
 
+	/**
+	 * @param player
+	 * @param npc
+	 */
 	public Talks(Actor player, Actor npc) {
 		this.npc = npc;
 	}

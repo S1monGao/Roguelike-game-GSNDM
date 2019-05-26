@@ -18,6 +18,14 @@ public class PlayerUpdated extends Player{
 	private GameMap currentMap;
 	private boolean quit;
 
+	/**
+	 * @param name
+	 * @param displayChar
+	 * @param priority
+	 * @param hitPoints
+	 * @param earth
+	 * @param moon
+	 */
 	public PlayerUpdated(String name, char displayChar, int priority, int hitPoints,GameMap earth,GameMap moon) {
 		super(name, displayChar, priority, hitPoints);
 		this.earth = earth;
@@ -25,29 +33,50 @@ public class PlayerUpdated extends Player{
 		// Initiate player with stun feature
 	}
 
+	/**
+	 * @return
+	 */
 	public int getStunnedRound() {
 		return stunnedRound;
 	}
 	
+	/**
+	 * @param num
+	 */
 	public void addRound(int num) {
 		if (!this.isStunned())
 			stunnedRound += num;
 	}
 	
+	/**
+	 * 
+	 */
 	public void minusRound() {
 		stunnedRound --;
 	}
 	
+	/**
+	 * @return
+	 */
 	public boolean isStunned() {
 		return stunnedRound > 0;
 	}
 	
+	/**
+	 * 
+	 */
 	public void addoxygen() {
 		this.oxygen += 10;
 	}
+	/**
+	 * 
+	 */
 	public void moveninMoon() {
 		this.oxygen -= 1;
 	}
+	/**
+	 * @return
+	 */
 	public boolean checkOxygen() {
 		
 		if(this.oxygen>0) 
@@ -56,14 +85,23 @@ public class PlayerUpdated extends Player{
 			return false;	
 	}
 	
+	/**
+	 * @return
+	 */
 	public int getBuildRound() {
 		return buildRound;
 	}
 	
+	/**
+	 * 
+	 */
 	public void addBuildRound() {
 		buildRound += 2;
 	}
 	
+	/**
+	 * @param map
+	 */
 	public void buildTank(GameMap map) {
 		if(buildRound==0) {
 			Item tank = Item.newFurniture("tank", 'T');
@@ -72,6 +110,9 @@ public class PlayerUpdated extends Player{
 		}
 	}
 	
+	/**
+	 * @return
+	 */
 	public GameMap getCurrentMap() {
 		return currentMap;
 	}
@@ -102,6 +143,10 @@ public class PlayerUpdated extends Player{
 		
 	}
 	
+	/**
+	 * @param display
+	 * @return
+	 */
 	public boolean win(Display display) {
 		if (currentMap == earth) {
 			for(Item item:this.getInventory()) {

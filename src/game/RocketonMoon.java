@@ -10,7 +10,6 @@ public class RocketonMoon extends Item{
 		super(name, '^');
 		this.allowableActions.clear();
 		this.getAllowableActions().add(new MoveActorAction(gameMap.at(22, 10), "to Earth!"));
-		// TODO Auto-generated constructor stub
 	}
 
 }

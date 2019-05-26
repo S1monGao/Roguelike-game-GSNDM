@@ -43,6 +43,6 @@ public class Grunt extends Actor {
 		
 		}
 		
-		return super.playTurn(actions, map, display);
+		return new SkipTurnAction();
 	}
 }

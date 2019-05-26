@@ -10,6 +10,10 @@ public class Opendoor extends Action {
 	private Location doorLocation;
 	private String direction;
 	
+	/**
+	 * @param direction
+	 * @param doorLocation
+	 */
 	public  Opendoor(String direction,Location doorLocation) {
 		this.direction = direction;
 		this.doorLocation = doorLocation;

@@ -10,6 +10,10 @@ public class ExchangePlan extends Action{
 	//exchange rocket plan with NPC
 		private Actor npc;	
 
+		/**
+		 * @param player
+		 * @param npc
+		 */
 		public ExchangePlan(Actor player, Actor npc) {
 			this.npc = npc;
 		}
