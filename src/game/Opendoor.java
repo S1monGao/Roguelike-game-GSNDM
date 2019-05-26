@@ -26,7 +26,7 @@ public class Opendoor extends Action {
 		}
 		
 		
-				return actor + "You need a key";
+				return actor + " need a key to open the door";
 		}
 	
 

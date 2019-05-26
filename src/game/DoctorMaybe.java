@@ -8,12 +8,13 @@ public class DoctorMaybe extends Actor{
 	private PlayerUpdated player;
 
 	public DoctorMaybe(String name,PlayerUpdated player) {
-		super(name, 'D', (int)2.5, 25);
+		super(name, 'D', 5/2, 25);
 		this.player = player;
 		this.addItemToInventory(RocketEngine.newInventoryItem("rocketEngine", 'E'));
 	}
 	
 
+	
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		if(player.getCurrentMap()==map) {

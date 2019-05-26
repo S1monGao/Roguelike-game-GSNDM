@@ -8,7 +8,6 @@ import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.FancyGroundFactory;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
-import edu.monash.fit2099.engine.World;
 
 public class Application {
 
@@ -69,8 +68,6 @@ public class Application {
 		gameMap.addItem(rocketplan,16,3);
 		RocketPad pad = new RocketPad(moon);
 		gameMap.addItem(pad, 22, 10);
-		player.addItemToInventory(new RocketBody());
-		player.addItemToInventory(new RocketEngine());
 		
         Item spaceSuit = new Item("space suit", '[');
         spaceSuit.addSkill(TravelinSpaceSkill.SPACETRAVELLER);
@@ -106,7 +103,6 @@ public class Application {
         YugoMaxx finboss = new YugoMaxx("yugomaxx",player);
         moon.addActor(finboss, 12, 1);
         
-        //player.addItemToInventory(new Item("Sleeping yugomaxx", 'y'));
         
 		world.run();
 	}

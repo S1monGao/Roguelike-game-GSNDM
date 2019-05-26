@@ -31,7 +31,9 @@ public class Goons extends Actor{
 	private void addBehaviour(ActionFactory behaviour) {
 		actionFactories.add(behaviour);
 	}
-  /*Goons have the same follow-behaviour as grunt and it can 
+  /*
+   * 
+   * Goons have the same follow-behaviour as grunt and it can insult
    * 
    */
 	@Override
