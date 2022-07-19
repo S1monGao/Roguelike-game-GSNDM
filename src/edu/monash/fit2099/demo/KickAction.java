@@ -7,12 +7,10 @@ import java.util.*;
 
 public class KickAction extends Action {
 
-	private Actor actor;
 	private Actor subject;
 	private Random rand = new Random();
 
 	public KickAction(Actor actor, Actor subject) {
-		this.actor = actor;
 		this.subject = subject;
 	}
 

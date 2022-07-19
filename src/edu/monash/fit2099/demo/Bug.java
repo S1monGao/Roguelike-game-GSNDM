@@ -11,8 +11,8 @@ public class Bug extends Actor {
 	private Random rand = new Random();
 	public List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();
 
-	public Bug() {
-		super("Feature", 'x', 2, 10);
+	public Bug(String name) {
+		super(name, 'x', 2, 10);
 	}
 	
 	@Override
